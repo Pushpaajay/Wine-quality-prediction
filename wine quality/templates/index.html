@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wine Quality Prediction</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    font-size: 40px; /* Reduced title size */
+    text-align: center;
+    color: red;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align prediction box to the top */
+    height: 100vh;
+    background-image: url("/static/wine.jpg"); /* Change 'background_image.jpg' to your actual image file */
+    background-size: 45%;
+    background-position:40% center;
+    background-repeat: no-repeat;
+  }
+  
+  .section-box {
+    width: 50%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .login-box {
+    width: 20%;
+    padding: 80px;
+    background-color: rgba(255, 255, 255, 0.7);
+    align-self: center; /* Align prediction box to the top */
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"], input[type="ph"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+</style>
+</head>
+<script>
+  function predictQuality() {
+      var pHValue = parseFloat(document.getElementById('pH').value);
+      var alcoholValue = parseFloat(document.getElementById('alcohol').value);
+
+      if (pHValue < 5 && alcoholValue > 7) {
+          document.getElementById('result').innerHTML = 'Predicted Quality: Good';
+      } else {
+          document.getElementById('result').innerHTML = 'Predicted Quality: Not Good';
+      }
+  }
+</script>
+<body>
+  
+  <h1>WINE QUALITY PREDICTION</h1>
+  <div class="container">
+    <div class="section-box"></div> <!-- Placeholder for other content on the left side -->
+    <div class="login-box">
+      <h2>PREDICTION</h2>
+      <div class="input-group">
+        <label for="pH">pH Value:</label>
+        <input type="number" id="pH" step="0.1" required><br>
+        
+      </div>
+      <div class="input-group">
+        <label for="alcohol">Alcohol Value:</label>
+        <input type="number" id="alcohol" step="0.1" required><br>
+        
+      </div>
+      <button onclick="predictQuality()">Predict</button>
+
+    <p id="result"></p>
+      
+    </div>
+  </div>
+
+  
+</body>
+
+
+</html>
